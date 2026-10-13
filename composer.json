@@ -4,7 +4,7 @@
   "type": "library",
   "require": {
     "php": "^7|^8",
-    "guzzlehttp/psr7": "^1",
+    "guzzlehttp/psr7": "^2",
     "paragonie/constant_time_encoding": "^2|^3",
     "paragonie/sodium_compat": ">= 1.15.4 || >= 2.1",
     "psr/http-message": "^1"

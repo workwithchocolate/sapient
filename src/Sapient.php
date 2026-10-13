@@ -65,7 +65,7 @@ class Sapient
      *
      * @param AdapterInterface $adapter
      */
-    public function __construct(AdapterInterface $adapter = null)
+    public function __construct(?AdapterInterface $adapter = null)
     {
         if (!$adapter) {
             $adapter = new Adapter();

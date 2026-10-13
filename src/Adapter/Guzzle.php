@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\{
     Request,
     Response
 };
-use function GuzzleHttp\Psr7\stream_for;
+use GuzzleHttp\Psr7\Utils;
 use ParagonIE\ConstantTime\Base64UrlSafe;
 use ParagonIE\Sapient\Exception\{
     InvalidMessageException
@@ -41,7 +41,7 @@ class Guzzle implements AdapterInterface, ConvenienceInterface
      * Guzzle constructor.
      * @param Client $guzzleClient
      */
-    public function __construct(Client $guzzleClient = null)
+    public function __construct(?Client $guzzleClient = null)
     {
         if (!$guzzleClient) {
             $guzzleClient = new Client();
@@ -588,7 +588,7 @@ class Guzzle implements AdapterInterface, ConvenienceInterface
     public function stringToStream(string $input): StreamInterface
     {
         /** @var StreamInterface|null $stream */
-        $stream = stream_for($input);
+        $stream = Utils::streamFor($input);
         if (!($stream instanceof StreamInterface)) {
             throw new \TypeError('Could not convert string to a stream');
         }
